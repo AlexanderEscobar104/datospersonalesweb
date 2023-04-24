@@ -1,0 +1,63 @@
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Consultar Datos</h5>
+      <form action="">
+        
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Tipo Documento:</label>
+            <select name="tipodocumento" class="form-control">
+                <option  > Cedula </option>
+                <option  > Nit </option>
+                <option  > Pasaporte </option>
+                <option  > Registro Civil </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="" style="text-align: left;">* Documento:</label>
+            <input  [(ngModel)]="documento" name="Documento"  type="text" class="form-control">
+        </div>
+        
+        
+        <button  (click)="getDatos()" class="btn btn-success" style="width: 100%;" >Consultar</button>
+        
+      </form>
+    </div>
+
+</div>
+
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">Listado De Turnos</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Documento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let datos of datospersonales ">
+            <td>{{datos.Documento}}</td>
+            <td>{{datos.Nombre}}</td>
+            <td>{{datos.Apellido}}</td>
+            <td>{{datos.Correo}}</td>
+            <td>{{datos.Telefono}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <button *ngIf="existe" (click)="exportToExcel()" class="btn btn-info" style="width: 100%;" >Exportar</button>
+
+    </div>
+
+  </div>
+
+
